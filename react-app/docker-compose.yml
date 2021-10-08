@@ -4,8 +4,17 @@ services:
     container_name: rct-app-${CONTAINER_PREFIX}
     build:
       context: .
+
+    # node_modules local
+    # volumes:
+    #  - '.:/app'
+    #
+
+    # node_modules inside the content
     volumes:
-      - '.:/app'
+    - './src/:/app/src/'
+    - './public/:/app/public/'
+
     ports:
       - ${APP_PORT}:3000
     environment:
