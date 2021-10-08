@@ -5,6 +5,7 @@
 # docker run -it --entrypoint /bin/bash npm_app
 
 # origin image
+# alpine version lightweight than node image
 FROM node:13-alpine
 
 WORKDIR /app
@@ -15,7 +16,6 @@ ENV PATH /app/node_modules/.bin:$PATH
 COPY . .
 
 # update packages
-RUN apt-get update
 RUN npm install
 
 # install react-script 
