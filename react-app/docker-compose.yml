@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  app:
+    container_name: rct-app-${CONTAINER_PREFIX}
+    build:
+      context: .
+    volumes:
+      - '.:/app'
+    ports:
+      - ${APP_PORT}:3000
+    environment:
+      - NODE_ENV=development
