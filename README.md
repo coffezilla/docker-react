@@ -20,4 +20,4 @@ After that, just call the 'docker-compose up' and it will just start the contain
 The node tagged with alpine is lightweight than default node. the alpine is secure and has all you need to run a simple react app.
 
 If you want to use the node default, it will be weight but it allow you to use bash:
-docker run -it --entrypoint /bin/bash my_node_image
+**docker run -it --entrypoint /bin/bash my_node_image**
