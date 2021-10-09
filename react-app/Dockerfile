@@ -1,16 +1,19 @@
 # This image run reactjs and node for development
-# all files are storage on host, the container is only used to run the app
+# all files are storage in the container
 #
-# TIP 1: alpine version lightweight than node image
-# TIP 2: run bash from the the node image:
-# $ docker run -it --entrypoint /bin/bash npm_app
 
-FROM node:13-alpine
+FROM node:14
 
 WORKDIR /app
 
+COPY package.json /app/package.json
+
+RUN npm install
+
 # add `/app/node_modules/.bin` to the $PATH
 ENV PATH /app/node_modules/.bin:$PATH
+
+COPY . .
 
 # install react-script 
 RUN npm install -g react-scripts
