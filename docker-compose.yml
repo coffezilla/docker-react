@@ -1,18 +1,17 @@
 version: '3.7'
 services:
   app:
-    container_name: rct-app-${CONTAINER_PREFIX}
     build:
       context: .
-      
+    container_name: react_front-${CONTAINER_PREFIX}
+    restart: always
     volumes:
-      - '.:/app'
-      - /app/node_modules
-
+      - "./react-app/public:/app/public"
+      - "./react-app/src:/app/src"
     command: npm start
     
     ports:
       - ${APP_PORT}:3000
-      
+
     environment:
       - NODE_ENV=development
