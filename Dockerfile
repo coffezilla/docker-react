@@ -6,7 +6,8 @@
 # TIP 2: run bash from the the node image:
 # $ docker run -it --entrypoint /bin/bash <image_name>
 
-FROM node:14
+# FROM node:14.18.1-buster
+FROM node:lts-alpine3.14
 
 
 # add `/app/node_modules/.bin` to the $PATH
